@@ -16,7 +16,7 @@ class Ui_MainWindow(object):
                 self.Ui_Infopage.muscle_choice_combobox.currentIndexChanged.connect(self.Ui_Infopage.chosenMuscle)
                 # Create a table to store usernames, hashed passwords, and measurements
                 cursor.execute('''
-                CREATE TABLE IF NOT EXISTS mes (
+                CREATE TABLE IF NOT EXISTS me (
                         id INTEGER PRIMARY KEY,
                         username TEXT NOT NULL UNIQUE,
                         password TEXT NOT NULL,
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
 
         # Function to get the maximum measurement for a given username
         def get_max(self,username):
-                cursor.execute('SELECT measurement FROM mes WHERE username = ?', (username,))
+                cursor.execute('SELECT measurement FROM me WHERE username = ?', (username,))
                 result = cursor.fetchone()
                 return result[0] if result else 0
         # Function to hash a password
@@ -35,7 +35,7 @@ class Ui_MainWindow(object):
 
         def add_user(self,username, password, measurement):
                 hashed_password = self.hash_password(password)
-                cursor.execute('INSERT INTO mes (username, password, measurement) VALUES (?, ?, ?)', (username, hashed_password, measurement))
+                cursor.execute('INSERT INTO me (username, password, measurement) VALUES (?, ?, ?)', (username, hashed_password, measurement))
                 conn.commit()
                 print("User added successfully!")
                 
@@ -45,7 +45,7 @@ class Ui_MainWindow(object):
                 password = self.password.text()
                 self.Ui_Infopage.welcome_name_label.setText(name)
                 max = self.Ui_Infopage.maximum_muscle_strength_value_label.text()
-                self.add_user(name,password, max)
+                #self.add_user(name,password, max)
                 if self.password.text() != "":
                         self.newwindow.show()
                         new_max = self.get_max(name)

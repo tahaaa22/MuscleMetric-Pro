@@ -143,6 +143,10 @@ class Ui_Infopage(object):
                 self.date_verticalLayout.addWidget(self.date_label)
                 self.dateTimeEdit = QtWidgets.QDateTimeEdit(self.welcomebox)
                 self.dateTimeEdit.setObjectName("dateTimeEdit")
+                # Set current date and time
+                self.dateTimeEdit.setDateTime(QtCore.QDateTime.currentDateTime())
+
+                self.date_verticalLayout.addWidget(self.dateTimeEdit)
                 self.date_verticalLayout.addWidget(self.dateTimeEdit)
                 self.welcome_horizontalLayout.addLayout(self.date_verticalLayout)
                 self.verticalLayout.addWidget(self.welcomebox)
