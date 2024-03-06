@@ -1,24 +1,20 @@
-import socket
+import bluetooth
 
-# Define the Bluetooth address of the device you want to connect to
-target_address = "60-E3-2B-58-6B-C7" # Replace with the Bluetooth address of your device
-
-# Define the port number to connect to on the device
-port = 1  # Standard Bluetooth port
+# Address of the Bluetooth module connected to your Arduino
+target_address = "60-E3-2B-58-6B-C7" # Replace with the Bluetooth module's address
 
 # Create a Bluetooth socket
-sock = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
+sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
 
-# Connect to the device
-sock.connect((target_address, port))
+# Connect to the Bluetooth module
+sock.connect((target_address, 1))
 
-# Send data to the device
-data = 'Hello, Bluetooth!'
-sock.send(data.encode())
+try:
+    while True:
+        # Receive data from the Bluetooth module
+        data = sock.recv(1024)
+        print("Received:", data)
 
-# Receive data from the device
-received_data = sock.recv(1024)
-print('Received:', received_data.decode())
-
-# Close the socket connection
-sock.close()
+except KeyboardInterrupt:
+    # Close the Bluetooth socket on Ctrl+C
+    sock.close()
