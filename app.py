@@ -4,6 +4,9 @@ from PyQt5.QtCore import QTimer
 from login import *
 import serial
 
+
+ 
+
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
@@ -13,8 +16,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Create a QTimer to read serial periodically
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.read_serial)
+        self.loginbutton.clicked.connect(lambda: self.start_app(self))
+        self.v = 0
         self.timer.start(100)  # Adjust the interval (milliseconds) as needed
+      
+
         
+    def max_measurements(self, val):
+        if int(val) > self.v:
+            self.v= int(val)
+            self.Ui_Infopage.maximum_muscle_strength_value_label.setText(str(self.v))
 
     def read_serial(self):
         if self.serialInst.in_waiting:
@@ -24,7 +35,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             value = packet.decode('utf-8').strip()
             # Convert the value to an integer
             try:
-                self.Ui_Infopage.range_resistance = value
+                self.max_measurements(value)
+                self.Ui_Infopage.muscle_strength_value_label.setText(value)
+                print(value)
             except ValueError:
                 print("Invalid value received from Arduino:", value)
 
@@ -33,11 +46,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.serialInst.close()
         event.accept()
 
+
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    ui.loginbutton.clicked.connect(lambda: ui.start_app(MainWindow))
-    MainWindow.show()
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
     sys.exit(app.exec_())

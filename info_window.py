@@ -4,7 +4,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Infopage(object):
         def __init__(self) -> None:
-               self.range_resistance = None
+               self.range_resistance = 20
+               print(self.range_resistance)
+        
+        def measurements(self, value):
+                self.muscle_strength_value_label.setText(value)
+                
 
         def chosenMuscle(self):
                 current_image = self.muscle_choice_combobox.currentText()
