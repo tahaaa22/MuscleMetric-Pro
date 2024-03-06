@@ -3,6 +3,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Infopage(object):
+        def __init__(self) -> None:
+               self.range_resistance = None
+
         def chosenMuscle(self):
                 current_image = self.muscle_choice_combobox.currentText()
                 self.muscle_choice_combobox
@@ -11,8 +14,8 @@ class Ui_Infopage(object):
                 else:
                         image = QtGui.QPixmap("calfs.jpg")
                 # Define the desired width and height for the image
-                desired_width = 300
-                desired_height = 800
+                desired_width = 350
+                desired_height = 1000
                 # Resize the image with the desired aspect ratio
                 scaled_image = image.scaled(desired_width, desired_height, QtCore.Qt.AspectRatioMode.KeepAspectRatio)
                 # Set the resized image as the pixmap of the label
@@ -106,11 +109,11 @@ class Ui_Infopage(object):
                 sizePolicy.setVerticalStretch(0)
                 sizePolicy.setHeightForWidth(self.welcomebox.sizePolicy().hasHeightForWidth())
                 self.welcomebox.setSizePolicy(sizePolicy)
-                self.welcomebox.setMinimumSize(QtCore.QSize(500, 131))
-                self.welcomebox.setMaximumSize(QtCore.QSize(16777215, 200))
+                self.welcomebox.setMinimumSize(QtCore.QSize(16777215, 16777215))
+                self.welcomebox.setMaximumSize(QtCore.QSize(16777215, 16777215))
                 self.welcomebox.setObjectName("welcomebox")
                 self.welcome_horizontalLayout = QtWidgets.QHBoxLayout(self.welcomebox)
-                self.welcome_horizontalLayout.setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
+                #self.welcome_horizontalLayout.setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
                 self.welcome_horizontalLayout.setSpacing(7)
                 self.welcome_horizontalLayout.setObjectName("welcome_horizontalLayout")
                 self.welcome_label = QtWidgets.QLabel(self.welcomebox)
@@ -373,7 +376,7 @@ class Ui_Infopage(object):
                 spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
                 self.horizontalLayout.addItem(spacerItem1)
                 self.image_label = QtWidgets.QLabel(self.databox)
-                self.image_label.setStyleSheet("border: 1.2px solid #ffffff;\n"
+                self.image_label.setStyleSheet("border: none;\n"
                                         "border-style: outset;\n"
                                         "border-radius: 15px;")
                 self.image_label.setFrameShape(QtWidgets.QFrame.Box)

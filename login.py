@@ -3,10 +3,11 @@ import sys
 from info_window import *
 
 class Ui_MainWindow(object):
-        def __init__(self) -> None:
+        def __init__(self) :
                 self.Ui_Infopage = Ui_Infopage()
                 self.newwindow = QtWidgets.QMainWindow()
                 self.Ui_Infopage.setupUi(self.newwindow)
+                
                
         def start_app(self, main):
                 name = self.username.text()
