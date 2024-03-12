@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtCore import QTimer
 from login import *
 from signup import *
-from info_window import *
+from StrengthUI import *
 import serial
 from pyfirmata import Arduino, util
 
@@ -38,11 +38,17 @@ class MainWindow(QMainWindow):
 
     def setupUi(self, layout_name):
         if layout_name == "signup":
-            self.current_layout = LogIn()
-        elif layout_name == "login":
             self.current_layout = SignUp()
+        elif layout_name == "login":
+            self.current_layout = LogIn()
+        elif layout_name == "StrenghtUI":
+            self.current_layout = Ui_Infopage()
 
         self.current_layout.setupUi(self)
+        if layout_name == "signup":
+            self.current_layout.loginbutton.clicked.connect(lambda: self.switch_layout("login"))
+        elif layout_name == "login":
+             self.current_layout.loginbutton.clicked.connect(lambda: self.switch_layout("StrenghtUI"))
 
     def switch_layout(self, layout_name):
         # Clear existing layout
@@ -66,16 +72,15 @@ class MainWindow(QMainWindow):
     #         except ValueError:
     #             print("Invalid value received from Arduino:", value)
 
-    def closeEvent(self, event):
-        # Close the serial port when the window is closed
-        self.serialInst.close()
-        event.accept()
+    # def closeEvent(self, event):
+    #     # Close the serial port when the window is closed
+    #     self.serialInst.close()
+    #     event.accept()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
-
     # Example of switching layout after some time (3 seconds)
     #QTimer.singleShot(3000, lambda: window.switch_layout("login"))
 
