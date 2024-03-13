@@ -4,8 +4,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Infopage(object):
         def __init__(self) -> None:
-               self.range_resistance = 20
-               print(self.range_resistance)
+                pass
         
         
         
