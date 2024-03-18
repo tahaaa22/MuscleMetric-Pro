@@ -8,13 +8,15 @@ from mobility_asesement import *
 import serial
 from pyfirmata import Arduino, util
 
+
 # Initialize Arduino board
 board = Arduino('COM6')
+
 # Define the analog pin where your sensor is connected
-analog_pin = board.get_pin('a:1:i')
+analog_pin = board.get_pin('a:0:i')
 it = util.Iterator(board)
 it.start()
-
+sensor_value = analog_pin.read()
 def read_sensor():
     # Read sensor value
     sensor_value = analog_pin.read()
