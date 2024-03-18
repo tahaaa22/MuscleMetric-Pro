@@ -1,1 +1,6 @@
 __pycache__/mobility_asesement.cpython-310.pyc
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+__pycache__/
+/.idea/
