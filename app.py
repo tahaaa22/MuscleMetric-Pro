@@ -8,21 +8,22 @@ from mobility_asesement import *
 import serial
 from pyfirmata import Arduino, util
 
-# Initialize Arduino board
-board = Arduino('COM6')
+# # Initialize Arduino board
+# board = Arduino('COM6')
 
-# Define the analog pin where your sensor is connected
-analog_pin = board.get_pin('a:1:i')
-analog_pin = board.get_pin('a:0:i')
-it = util.Iterator(board)
-it.start()
+# # Define the analog pin where your sensor is connected
+# analog_pin = board.get_pin('a:1:i')
+# analog_pin = board.get_pin('a:0:i')
+# it = util.Iterator(board)
+# it.start()
 
 def read_sensor():
-    # Read sensor value
-    sensor_value = analog_pin.read()
-    if sensor_value is not None:
-        scaled_value = int(sensor_value * 1023)
-    return scaled_value
+    pass
+    # # Read sensor value
+    # sensor_value = analog_pin.read()
+    # if sensor_value is not None:
+    #     scaled_value = int(sensor_value * 1023)
+    # return scaled_value
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -31,7 +32,7 @@ class MainWindow(QMainWindow):
         self.setupUi("signup")
         # Create a QTimer to read serial periodically
         self.timer = QTimer(self)
-        self.timer.timeout.connect(self.read_serial)
+        #self.timer.timeout.connect(self.read_serial)
         self.timer.start(100)  # Adjust the interval (milliseconds) as needed
 
     def setupUi(self, layout_name):
@@ -46,7 +47,7 @@ class MainWindow(QMainWindow):
 
         self.current_layout.setupUi(self)
         if layout_name == "signup":
-            self.current_layout.loginbutton.clicked.connect(lambda: self.switch_layout("login"))
+            self.current_layout.signup.clicked.connect(lambda: self.switch_layout("login"))
         elif layout_name == "login":
              self.current_layout.loginbutton.clicked.connect(lambda: self.switch_layout("StrenghtUI"))
         elif layout_name == "assesement":

@@ -1,195 +1,263 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QVBoxLayout
+
 
 class SignUp(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(831, 466)
-        Form.setSizeIncrement(QtCore.QSize(450, 550))
-        self.gridLayout = QtWidgets.QGridLayout(Form)
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(845, 481)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        self.centralwidget.setSizePolicy(sizePolicy)
+        self.centralwidget.setMaximumSize(QtCore.QSize(3000, 1000))
+        self.centralwidget.setAutoFillBackground(False)
+        self.centralwidget.setStyleSheet("background-color:rgb(223, 223, 223);")
+        self.centralwidget.setObjectName("centralwidget")
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
-        self.widget = QtWidgets.QWidget(Form)
-        self.widget.setObjectName("widget")
-        self.label = QtWidgets.QLabel(self.widget)
-        self.label.setGeometry(QtCore.QRect(0, 0, 831, 455))
-        self.label.setStyleSheet("border-radius: 20px;")
-        self.label.setText("")
-        self.label.setObjectName("label")
-        
-        # Load and set the image
-        pixmap = QPixmap(r"signup-image.jpeg") 
-        self.label.setPixmap(pixmap)
-        
-        # Set up the layout
-        layout = QVBoxLayout(self.widget)
-        layout.addWidget(self.label)
-        self.widget.setLayout(layout)
-        
-        # Add the widget to the main layout
-        self.gridLayout.addWidget(self.widget)
-        self.ACCOUNT = QtWidgets.QGroupBox(self.widget)
-        self.ACCOUNT.setGeometry(QtCore.QRect(0, 20, 321, 81))
-        self.ACCOUNT.setStyleSheet("border:none;\n"
+        self.groupbox = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupbox.setStyleSheet("QGroupBox {\n"
+"    border: 2px solid rgb(223, 223, 223);\n"
+"    border-radius: 10px; /* Set border radius for rounded corners */\n"
+"}\n"
+"\n"
+"QGroupBox::title {\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top center; /* Position the title at the top center */\n"
+"    padding: 0 5px; /* Adjust padding for the title */\n"
+"    background-color: #f0f0f0; /* Set background color for the title */\n"
+"}\n"
+"\n"
+"QGroupBox::title:hover {\n"
+"    background-color: #e0e0e0; /* Change title background color on hover */\n"
+"}\n"
+"\n"
+"QGroupBox::indicator {\n"
+"    width: 16px; /* Set the width of the indicator */\n"
+"    height: 16px; /* Set the height of the indicator */\n"
+"}\n"
+"\n"
+"QGroupBox::indicator:checked {\n"
+"    background-color: #555555; /* Set background color for checked indicator */\n"
+"}\n"
+"\n"
+"QGroupBox::indicator:checked:hover {\n"
+"    background-color: #333333; /* Change background color for checked indicator on hover */\n"
+"}\n"
+"\n"
+"QGroupBox::indicator:checked:disabled {\n"
+"    background-color: #999999; /* Set background color for disabled checked indicator */\n"
+"}\n"
 "")
-        self.ACCOUNT.setObjectName("ACCOUNT")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.ACCOUNT)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        spacerItem = QtWidgets.QSpacerItem(168, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem)
-        self.createanaccount = QtWidgets.QLabel(self.ACCOUNT)
-        font = QtGui.QFont()
-        font.setFamily("Bahnschrift Light SemiCondensed")
-        font.setPointSize(30)
-        font.setItalic(False)
-        self.createanaccount.setFont(font)
-        self.createanaccount.setStyleSheet("font: 300 24pt \"Bahnschrift Light SemiCondensed\";\n"
-"color: rgb(9, 9, 9);")
-        self.createanaccount.setObjectName("createanaccount")
-        self.horizontalLayout.addWidget(self.createanaccount)
-        spacerItem1 = QtWidgets.QSpacerItem(168, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem1)
-        self.verticalLayout.addLayout(self.horizontalLayout)
-        self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.label_3 = QtWidgets.QLabel(self.ACCOUNT)
-        self.label_3.setStyleSheet("color: rgb(115, 115, 115);")
-        self.label_3.setObjectName("label_3")
-        self.horizontalLayout_5.addWidget(self.label_3)
-        self.login = QtWidgets.QPushButton(self.ACCOUNT)
-        self.login.setStyleSheet("border:none;\n"
-"color: rgb(62, 97, 255)")
-        self.login.setObjectName("login")
-        self.horizontalLayout_5.addWidget(self.login)
-        spacerItem2 = QtWidgets.QSpacerItem(118, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_5.addItem(spacerItem2)
-        self.verticalLayout.addLayout(self.horizontalLayout_5)
-        self.MAILANDPASS = QtWidgets.QGroupBox(self.widget)
-        self.MAILANDPASS.setGeometry(QtCore.QRect(20, 110, 301, 241))
-        self.MAILANDPASS.setStyleSheet("border:none;")
-        self.MAILANDPASS.setObjectName("MAILANDPASS")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.MAILANDPASS)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.label_5 = QtWidgets.QLabel(self.MAILANDPASS)
-        self.label_5.setObjectName("label_5")
-        self.verticalLayout_2.addWidget(self.label_5)
-        self.MAIL = QtWidgets.QGroupBox(self.MAILANDPASS)
-        self.MAIL.setStyleSheet("border:none;")
-        self.MAIL.setObjectName("MAIL")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.MAIL)
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.enteremail = QtWidgets.QTextEdit(self.MAIL)
-        self.enteremail.setStyleSheet("background-color: rgba(0 ,0 ,0 ,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(9,9,9);\n"
-"padding-bottom:7px;\n"
-"color: rgb(9, 9, 9);\n"
-"")
-        self.enteremail.setObjectName("enteremail")
-        self.horizontalLayout_2.addWidget(self.enteremail)
-        spacerItem3 = QtWidgets.QSpacerItem(70, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem3)
-        self.verticalLayout_2.addWidget(self.MAIL)
-        self.label_6 = QtWidgets.QLabel(self.MAILANDPASS)
-        self.label_6.setObjectName("label_6")
-        self.verticalLayout_2.addWidget(self.label_6)
-        self.PASSWORD1 = QtWidgets.QGroupBox(self.MAILANDPASS)
-        self.PASSWORD1.setObjectName("PASSWORD1")
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.PASSWORD1)
+        self.groupbox.setObjectName("groupbox")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.groupbox)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.PASSWORD1 = QtWidgets.QTextEdit(self.PASSWORD1)
+        self.groupbox1 = QtWidgets.QGroupBox(self.groupbox)
+        self.groupbox1.setStyleSheet("border:none;")
+        self.groupbox1.setObjectName("groupbox1")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.groupbox1)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.label = QtWidgets.QLabel(self.groupbox1)
         font = QtGui.QFont()
-        font.setFamily("Simple Bold Jut Out")
-        self.PASSWORD1.setFont(font)
-        self.PASSWORD1.setStyleSheet("background-color: rgba(0 ,0 ,0 ,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(9,9,9, 255);\n"
-"color: rgb(9, 9, 9);\n"
-"padding-bottom:7px;\n"
+        font.setFamily("Arial")
+        font.setPointSize(22)
+        self.label.setFont(font)
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.verticalLayout_6.addWidget(self.label)
+        self.groupbox2 = QtWidgets.QGroupBox(self.groupbox1)
+        self.groupbox2.setStyleSheet("")
+        self.groupbox2.setObjectName("groupbox2")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.groupbox2)
+        self.verticalLayout.setContentsMargins(-1, 27, -1, -1)
+        self.verticalLayout.setSpacing(4)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label_3 = QtWidgets.QLabel(self.groupbox2)
+        self.label_3.setMaximumSize(QtCore.QSize(16777215, 45))
+        self.label_3.setObjectName("label_3")
+        self.verticalLayout.addWidget(self.label_3)
+        self.textEdit_3 = QtWidgets.QTextEdit(self.groupbox2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.textEdit_3.sizePolicy().hasHeightForWidth())
+        self.textEdit_3.setSizePolicy(sizePolicy)
+        self.textEdit_3.setMaximumSize(QtCore.QSize(16777215, 32))
+        self.textEdit_3.setStyleSheet("background-color: rgb(230, 230, 230);\n"
+"border: 2px solid  rgb(230, 230, 230); /* Set border width and color */\n"
+"    border-radius: 10px; /* Set border radius for rounded corners */")
+        self.textEdit_3.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.textEdit_3.setObjectName("textEdit_3")
+        self.verticalLayout.addWidget(self.textEdit_3)
+        self.verticalLayout_6.addWidget(self.groupbox2)
+        self.groupbox3 = QtWidgets.QGroupBox(self.groupbox1)
+        self.groupbox3.setStyleSheet("")
+        self.groupbox3.setObjectName("groupbox3")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.groupbox3)
+        self.verticalLayout_4.setContentsMargins(-1, 0, -1, 12)
+        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.label_4 = QtWidgets.QLabel(self.groupbox3)
+        self.label_4.setMaximumSize(QtCore.QSize(16777215, 45))
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout_4.addWidget(self.label_4)
+        self.textEdit_2 = QtWidgets.QTextEdit(self.groupbox3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.textEdit_2.sizePolicy().hasHeightForWidth())
+        self.textEdit_2.setSizePolicy(sizePolicy)
+        self.textEdit_2.setMaximumSize(QtCore.QSize(16777215, 28))
+        self.textEdit_2.setStyleSheet("background-color: rgb(230, 230, 230);\n"
+"border: 2px solid  rgb(230, 230, 230); /* Set border width and color */\n"
+"    border-radius: 10px; /* Set border radius for rounded corners */")
+        self.textEdit_2.setObjectName("textEdit_2")
+        self.verticalLayout_4.addWidget(self.textEdit_2)
+        self.verticalLayout_6.addWidget(self.groupbox3)
+        self.groupbox4 = QtWidgets.QGroupBox(self.groupbox1)
+        self.groupbox4.setStyleSheet("")
+        self.groupbox4.setObjectName("groupbox4")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.groupbox4)
+        self.verticalLayout_5.setContentsMargins(-1, 0, -1, 22)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.label_5 = QtWidgets.QLabel(self.groupbox4)
+        self.label_5.setMaximumSize(QtCore.QSize(16777215, 45))
+        self.label_5.setObjectName("label_5")
+        self.verticalLayout_5.addWidget(self.label_5)
+        self.textEdit = QtWidgets.QTextEdit(self.groupbox4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
+        self.textEdit.setSizePolicy(sizePolicy)
+        self.textEdit.setMaximumSize(QtCore.QSize(16777215, 28))
+        self.textEdit.setStyleSheet("background-color: rgb(230, 230, 230);\n"
+"border: 2px solid  rgb(230, 230, 230); /* Set border width and color */\n"
+"    border-radius: 10px; /* Set border radius for rounded corners */")
+        self.textEdit.setObjectName("textEdit")
+        self.verticalLayout_5.addWidget(self.textEdit)
+        self.verticalLayout_6.addWidget(self.groupbox4)
+        self.radioButton = QtWidgets.QRadioButton(self.groupbox1)
+        self.radioButton.setStyleSheet("color:grey;")
+        self.radioButton.setObjectName("radioButton")
+        self.verticalLayout_6.addWidget(self.radioButton)
+        self.groupbox5 = QtWidgets.QGroupBox(self.groupbox1)
+        self.groupbox5.setStyleSheet("background-color: none;\n"
+"border: none;\n"
+"\n"
 "")
-        self.PASSWORD1.setObjectName("PASSWORD1")
-        self.horizontalLayout_3.addWidget(self.PASSWORD1)
-        spacerItem4 = QtWidgets.QSpacerItem(70, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_3.addItem(spacerItem4)
-        self.verticalLayout_2.addWidget(self.PASSWORD1)
-        self.CONFPASS = QtWidgets.QGroupBox(self.MAILANDPASS)
-        self.CONFPASS.setObjectName("CONFPASS")
-        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.CONFPASS)
-        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
-        self.confirmpass = QtWidgets.QTextEdit(self.CONFPASS)
+        self.groupbox5.setObjectName("groupbox5")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.groupbox5)
+        self.horizontalLayout_2.setSpacing(6)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem)
+        self.signup = QtWidgets.QPushButton(self.groupbox5)
         font = QtGui.QFont()
-        font.setFamily("Simple Bold Jut Out")
-        self.confirmpass.setFont(font)
-        self.confirmpass.setStyleSheet("background-color: rgba(0 ,0 ,0 ,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(9,9,9, 255);\n"
-"color: rgb(9, 9, 9);\n"
-"padding-bottom:7px;\n"
-"")
-        self.confirmpass.setObjectName("confirmpass")
-        self.horizontalLayout_4.addWidget(self.confirmpass)
-        spacerItem5 = QtWidgets.QSpacerItem(70, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_4.addItem(spacerItem5)
-        self.verticalLayout_2.addWidget(self.CONFPASS)
-        self.layoutWidget = QtWidgets.QWidget(self.widget)
-        self.layoutWidget.setGeometry(QtCore.QRect(20, 350, 301, 81))
-        self.layoutWidget.setObjectName("layoutWidget")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.layoutWidget)
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.signuobox = QtWidgets.QGroupBox(self.layoutWidget)
-        self.signuobox.setMaximumSize(QtCore.QSize(16777215, 55))
-        self.signuobox.setStyleSheet("border:none;\n"
-"")
-        self.signuobox.setObjectName("signuobox")
-        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.signuobox)
-        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.signup = QtWidgets.QPushButton(self.signuobox)
-        font = QtGui.QFont()
-        font.setFamily("Bahnschrift Light SemiCondensed")
-        font.setPointSize(16)
-        font.setItalic(False)
+        font.setFamily("Arial")
+        font.setPointSize(13)
+        font.setBold(True)
+        font.setWeight(75)
         self.signup.setFont(font)
-        self.signup.setStyleSheet("font: 300 16pt \"Bahnschrift Light SemiCondensed\";\n"
-"background-color: rgb(62, 97, 255);\n"
-"color: rgb(255, 255, 255);\n"
+        self.signup.setAutoFillBackground(False)
+        self.signup.setStyleSheet("background-color:rgb(105, 126, 165);\n"
+"border: 2px solid rgb(105, 126, 165);\n"
+"    border-radius: 10px; /* Set border radius for rounded corners */\n"
+"color: white;\n"
 "")
         self.signup.setObjectName("signup")
-        self.horizontalLayout_6.addWidget(self.signup)
-        spacerItem6 = QtWidgets.QSpacerItem(58, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_6.addItem(spacerItem6)
-        self.verticalLayout_3.addWidget(self.signuobox)
-        self.checkBox = QtWidgets.QCheckBox(self.layoutWidget)
-        self.checkBox.setStyleSheet("Font: 7pt;color: rgb(115, 115, 115);")
-        self.checkBox.setObjectName("checkBox")
-        self.verticalLayout_3.addWidget(self.checkBox)
-        self.gridLayout.addWidget(self.widget, 0, 0, 1, 1)
+        self.horizontalLayout_2.addWidget(self.signup)
+        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem1)
+        self.verticalLayout_6.addWidget(self.groupbox5)
+        self.groupbox6 = QtWidgets.QGroupBox(self.groupbox1)
+        self.groupbox6.setMaximumSize(QtCore.QSize(16777215, 33))
+        self.groupbox6.setStyleSheet("")
+        self.groupbox6.setObjectName("groupbox6")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.groupbox6)
+        self.horizontalLayout.setContentsMargins(21, 0, 60, 0)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.label_2 = QtWidgets.QLabel(self.groupbox6)
+        self.label_2.setMaximumSize(QtCore.QSize(269, 45))
+        self.label_2.setStyleSheet("color:grey;")
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout.addWidget(self.label_2)
+        self.pushButton = QtWidgets.QPushButton(self.groupbox6)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
+        self.pushButton.setMaximumSize(QtCore.QSize(229, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("color:rgb(0, 85, 255);\n"
+"background-color: none;\n"
+"Font: 8pt;")
+        self.pushButton.setObjectName("pushButton")
+        self.horizontalLayout.addWidget(self.pushButton)
+        self.verticalLayout_6.addWidget(self.groupbox6)
+        self.horizontalLayout_3.addWidget(self.groupbox1)
+        self.label_8 = QtWidgets.QLabel(self.groupbox)
+        self.label_8.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_8.setAutoFillBackground(False)
+        self.label_8.setStyleSheet("border-radius: 10px; /* Set border radius for rounded corners */\n"
+"background-position: center;\n"
+"background-repeat: no-repeat;\n"
+"background-size: cover;\n"
+"")
+        self.label_8.setText("")
+        self.label_8.setPixmap(QtGui.QPixmap(r"signup-image.jpeg"))
+        self.label_8.setScaledContents(True)
+        self.label_8.setObjectName("label_8")
+        self.horizontalLayout_3.addWidget(self.label_8)
+        self.gridLayout.addWidget(self.groupbox, 0, 0, 1, 1)
+        self.label_8.raise_()
+        self.label.raise_()
+        self.label_2.raise_()
+        self.pushButton.raise_()
+        self.label_3.raise_()
+        self.label_4.raise_()
+        self.label_5.raise_()
+        self.signup.raise_()
+        self.textEdit.raise_()
+        self.textEdit_2.raise_()
+        self.textEdit_3.raise_()
+        self.radioButton.raise_()
+        MainWindow.setCentralWidget(self.centralwidget)
+        #self.label_5.setBuddy(MainWindow.Confirm_Password)
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.createanaccount.setText(_translate("Form", "Create An Account"))
-        self.label_3.setText(_translate("Form", "Already Have An Acount?"))
-        self.login.setText(_translate("Form", "Log in"))
-        self.label_5.setText(_translate("Form", "Email address"))
-        self.enteremail.setPlaceholderText(_translate("Form", "Enter Email"))
-        self.label_6.setText(_translate("Form", "PassWord"))
-        self.PASSWORD1.setPlaceholderText(_translate("Form", "PassWord"))
-        self.confirmpass.setPlaceholderText(_translate("Form", "Confirm Password"))
-        self.signup.setText(_translate("Form", "sign Up"))
-        self.checkBox.setText(_translate("Form", "I agree to the Terms of service and privacy policy"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.label.setText(_translate("MainWindow", "Create An Account"))
+        self.label_3.setText(_translate("MainWindow", "Email Address"))
+        self.textEdit_3.setPlaceholderText(_translate("MainWindow", "Enter Email"))
+        self.label_4.setText(_translate("MainWindow", "Password"))
+        self.textEdit_2.setPlaceholderText(_translate("MainWindow", "Enter Password"))
+        self.label_5.setText(_translate("MainWindow", "Confirm Password"))
+        self.textEdit.setPlaceholderText(_translate("MainWindow", "Confirm Password"))
+        self.radioButton.setText(_translate("MainWindow", "I agree to the Terms of sevices and privacy policy"))
+        self.signup.setText(_translate("MainWindow", " Sign Up "))
+        self.label_2.setText(_translate("MainWindow", "Aleady have an account?"))
+        self.pushButton.setText(_translate("MainWindow", "LogIn Here!"))
 
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
+    MainWindow = QtWidgets.QMainWindow()
     ui = SignUp()
-    ui.setupUi(Form)
-    Form.show()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
     sys.exit(app.exec_())
