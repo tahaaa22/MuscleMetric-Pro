@@ -5,9 +5,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Infopage(object):
         def __init__(self) -> None:
                 pass
-        
-        
-        
+     
         def Enable_measurements(self, checked):
                 self.musclebox.setEnabled(checked)
                 self.databox.setEnabled(checked)

@@ -163,10 +163,10 @@ class SignUp(object):
         font.setWeight(75)
         self.signup.setFont(font)
         self.signup.setAutoFillBackground(False)
-        self.signup.setStyleSheet("background-color:rgb(105, 126, 165);\n"
-"border: 2px solid rgb(105, 126, 165);\n"
-"    border-radius: 10px; /* Set border radius for rounded corners */\n"
-"color: white;\n"
+        self.signup.setStyleSheet("color: black;\n"
+" background-color: transparent;\n"
+"border: 2px solid rgb(63, 71, 105);\n"
+"border-radius: 10px; /* Set border radius for rounded corners */\n"
 "")
         self.signup.setObjectName("signup")
         self.horizontalLayout_2.addWidget(self.signup)
@@ -242,8 +242,8 @@ class SignUp(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "Create An Account"))
-        self.label_3.setText(_translate("MainWindow", "Email Address"))
-        self.textEdit_3.setPlaceholderText(_translate("MainWindow", "Enter Email"))
+        self.label_3.setText(_translate("MainWindow", "UserName"))
+        self.textEdit_3.setPlaceholderText(_translate("MainWindow", "Enter UserName"))
         self.label_4.setText(_translate("MainWindow", "Password"))
         self.textEdit_2.setPlaceholderText(_translate("MainWindow", "Enter Password"))
         self.label_5.setText(_translate("MainWindow", "Confirm Password"))
@@ -251,7 +251,7 @@ class SignUp(object):
         self.radioButton.setText(_translate("MainWindow", "I agree to the Terms of sevices and privacy policy"))
         self.signup.setText(_translate("MainWindow", " Sign Up "))
         self.label_2.setText(_translate("MainWindow", "Aleady have an account?"))
-        self.pushButton.setText(_translate("MainWindow", "LogIn Here!"))
+        self.pushButton.setText(_translate("MainWindow", "LogIn"))
 
 
 if __name__ == "__main__":
