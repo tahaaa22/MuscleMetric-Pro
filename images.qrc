@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="images">
+    <file>arrow-return-left.png</file>
+    <file>person-circle.png</file>
+    <file>person-fill.png</file>
+    <file>gear.png</file>
+    <file>flexion.PNG</file>
+    <file>chat-dots.png</file>
+    <file>extension.PNG</file>
+    <file>abduction.PNG</file>
+    <file>flexionbw.PNG</file>
+    <file>extensionbw.PNG</file>
+    <file>abductionbw.PNG</file>
+  </qresource>
+</RCC>
