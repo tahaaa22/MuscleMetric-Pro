@@ -19,7 +19,7 @@ MuscleMetric Pro is a revolutionary physical therapy solution that leverages cut
 - Assessment of joint range of motion using gyroscope technology.
 
 ## Prototype:
-![Prototype Image 1](calf.jpg)
+![images\prototype1.jpeg](calf.jpg)
 *Caption: MuscleMetric Pro hardware prototype with Force-Sensitive Resistors (FSRs) integrated.*
 
 ![Prototype Image 2](prototype2.jpg)
