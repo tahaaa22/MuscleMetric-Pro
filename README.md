@@ -19,14 +19,31 @@ MuscleMetric Pro is a revolutionary physical therapy solution that leverages cut
 - Assessment of joint range of motion using gyroscope technology.
 
 ## Prototype:
-![Prototype Image 1](https://github.com/tahaaa22/MuscleMetric-Pro/blob/97f341b3d98da3c35f0f4898f6534c8a0f81ce2d/images/prototype1.jpeg)
+![Prototype Image 1](https://github.com/tahaaa22/MuscleMetric-Pro/blob/97f341b3d98da3c35f0f4898f6534c8a0f81ce2d/images/wearingHardware.jpeg)
 *Caption: Hardware in use.*
 
-![Prototype Image 2](https://github.com/tahaaa22/MuscleMetric-Pro/blob/97f341b3d98da3c35f0f4898f6534c8a0f81ce2d/images/prototype1.jpeg)
-![Prototype Image 3](https://github.com/tahaaa22/MuscleMetric-Pro/blob/97f341b3d98da3c35f0f4898f6534c8a0f81ce2d/images/prototype2.jpeg)
+![Prototype Image 2](https://github.com/tahaaa22/MuscleMetric-Pro/blob/97f341b3d98da3c35f0f4898f6534c8a0f81ce2d/images/groupimage.jpeg)
+*Caption: Hardware in use.*
+
+![Prototype Image 3](https://github.com/tahaaa22/MuscleMetric-Pro/blob/97f341b3d98da3c35f0f4898f6534c8a0f81ce2d/images/prototype1.jpeg)
 *Caption: MuscleMetric Pro hardware prototype with Force-Sensitive Resistors (FSRs) integrated.*
 
 ![Prototype Image 4](https://github.com/tahaaa22/MuscleMetric-Pro/blob/97f341b3d98da3c35f0f4898f6534c8a0f81ce2d/images/prototype2.jpeg)
+*Caption: MuscleMetric Pro hardware prototype with Force-Sensitive Resistors (FSRs) integrated.*
+
+![Prototype Image 5](https://github.com/tahaaa22/MuscleMetric-Pro/blob/97f341b3d98da3c35f0f4898f6534c8a0f81ce2d/images/signup-image.png)
+*Caption: MuscleMetric Pro software application interface for therapists.*
+
+![Prototype Image 6](https://github.com/tahaaa22/MuscleMetric-Pro/blob/97f341b3d98da3c35f0f4898f6534c8a0f81ce2d/images/login.png)
+*Caption: MuscleMetric Pro software application interface for therapists.*
+
+![Prototype Image 7](https://github.com/tahaaa22/MuscleMetric-Pro/blob/97f341b3d98da3c35f0f4898f6534c8a0f81ce2d/images/assesment1.jpeg)
+*Caption: MuscleMetric Pro software application interface for therapists.*
+
+![Prototype Image 8](https://github.com/tahaaa22/MuscleMetric-Pro/blob/97f341b3d98da3c35f0f4898f6534c8a0f81ce2d/images/assesment2.jpeg)
+*Caption: MuscleMetric Pro software application interface for therapists.*
+
+![Prototype Image 9](https://github.com/tahaaa22/MuscleMetric-Pro/blob/97f341b3d98da3c35f0f4898f6534c8a0f81ce2d/images/mobility.jpeg)
 *Caption: MuscleMetric Pro software application interface for therapists.*
 
 ## Usage:
