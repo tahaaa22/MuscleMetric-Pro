@@ -215,7 +215,7 @@ class SignUp(object):
 "background-size: cover;\n"
 "")
         self.label_8.setText("")
-        self.label_8.setPixmap(QtGui.QPixmap(r"signup-image.jpeg"))
+        self.label_8.setPixmap(QtGui.QPixmap(r"images\signup-image.jpeg"))
         self.label_8.setScaledContents(True)
         self.label_8.setObjectName("label_8")
         self.horizontalLayout_3.addWidget(self.label_8)

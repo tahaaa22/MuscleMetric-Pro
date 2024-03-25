@@ -27,7 +27,7 @@ class LogIn(object):
 "    background-repeat: no-repeat;\n"
 "background-position: center;"
 "    background-size: contain; /* Scale the background image to fit */\n"
-"    background-image: url(login-image.jpeg);\n"
+"    background-image: url(images//login-image.jpeg);\n"
 "}")
         self.Parent.setObjectName("Parent")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.Parent)
